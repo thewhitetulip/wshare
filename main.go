@@ -3,7 +3,9 @@ package main
 import (
 	"flag"
 	"fmt"
+	"strings"
 	"net/http"
+	"net"
 	"os"
 )
 
@@ -13,8 +15,10 @@ var downloaded int
 
 func main() {
 	downloaded = 0
-	ip := "127.0.0.1"
-	//TODO -> Get the system IP
+	addresses, err := net.InterfaceAddrs()
+	checkErr(err)
+	
+	ip := strings.Split(addresses[0].String(), "/")[0]
 	filename = flag.String("f", "invalid", "File name to be shared")
 	numberOfTimes = flag.Int("t", 1, "Number of times file to be shared")
 
@@ -39,5 +43,11 @@ func ServeFileHandler(w http.ResponseWriter, r *http.Request) {
 	if downloaded >= *numberOfTimes {
 		fmt.Println("Downloads done, exiting")
 		os.Exit(0)
+	}
+}
+
+func checkErr(err error){
+	if err!= nil {
+		fmt.Println("Error: ", err)
 	}
 }
