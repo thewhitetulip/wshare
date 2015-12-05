@@ -20,6 +20,9 @@ eg:   `./wshare -f classical.pdf`
 where `filename` is the name of the file and `number` is the number of 
 times the file is expected to be downloaded.
 
+If you want to share a folder, then provide the folder name after the `-f` flag, the folder will be
+compressed and that zip file will be shared.
+
 When you run the command as above, it'll give a URL like
  
 >download link: http://127.0.0.1:8080/share/classical.pdf
@@ -32,9 +35,7 @@ download manager if you are using *nix and have wget then do a
 `wget http://127.0.0.1:8080/share/classical.pdf`
 
 ##TODO
-1. Ability to share folders
-2. Short URLs (will involve routing)
-
+1. easy way to share with mobile devices which don't support zip
 
 ##Contributing:
 
@@ -45,4 +46,11 @@ Please run gofmt on all go files you change or submit, see
 `github.com/thewhitetulip/gofmtall` for a shell script which runs gofmt on each go file in 
 the directory
 
+
+wShare is intended to used for sharing files within the network, there are two ways you can share files, a single file 
+mode and a multiple file mode, above mentioned is the example for single file mode, if you have to share multiple files then
+use the directory mode and share the directory, the application will zip it and allow it to be downloaded, either that or compress
+the respective files and share the one zip file, the choice is yours, the application is designed to suit to the user's preferecnes
+and not the other way round!
+ 
 LICENSE: MIT
