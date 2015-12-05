@@ -72,6 +72,7 @@ func ServeRouterHandler(w http.ResponseWriter, r *http.Request) {
 func ServeFileHandler(w http.ResponseWriter, r *http.Request) {
 	file := r.URL.Path[len("/share/"):]
 	downloaded += 1
+	log.Println("Downloaded", downloaded, " times")
 	http.ServeFile(w, r, file)
 	if downloaded >= *numberOfTimes {
 		log.Println("Downloads done, exiting")
