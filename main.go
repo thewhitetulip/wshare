@@ -76,7 +76,7 @@ func ServeFileHandler(w http.ResponseWriter, r *http.Request) {
 	http.ServeFile(w, r, file)
 	if downloaded >= *numberOfTimes {
 		log.Println("Downloads done, exiting")
-		os.Exit(0)
+		//os.Exit(0)
 	}
 }
 

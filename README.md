@@ -42,10 +42,6 @@ download manager if you are using *nix and have wget then do a
 Pull requests are welcome. If you are a first time open source contributor, 
 don't hesitate to open an issue, and let's discuss, I don't bite!
 
-Please run gofmt on all go files you change or submit, see 
-`github.com/thewhitetulip/gofmtall` for a shell script which runs gofmt on each go file in 
-the directory
-
 
 wShare is intended to used for sharing files within the network, there are two ways you can share files, a single file 
 mode and a multiple file mode, above mentioned is the example for single file mode, if you have to share multiple files then
