@@ -1,15 +1,15 @@
-wShare
+# wShare
 ========
 
 wShare was built to make file sharing within intranet easy.
 
-##Build
+## Build
 
 1. `go get github.com/thewhitetulip/wshare`
 2. `go build`
 
 
-##Working
+## Working
 
 Call the binary in the following way:
 
@@ -34,10 +34,10 @@ download manager if you are using *nix and have wget then do a
 
 `wget http://127.0.0.1:8080/share/classical.pdf`
 
-##TODO
+## TODO
 1. easy way to share with mobile devices which don't support zip
 
-##Contributing:
+## Contributing:
 
 Pull requests are welcome. If you are a first time open source contributor, 
 don't hesitate to open an issue, and let's discuss, I don't bite!
