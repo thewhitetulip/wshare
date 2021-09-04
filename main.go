@@ -19,17 +19,8 @@ var routes map[string]string
 
 func main() {
 	downloaded = 0
-	addresses, err := net.InterfaceAddrs()
 	routes = make(map[string]string)
-
-	checkErr(err)
-	ip := addresses[1].String()
-	if len(addresses) == 3 {
-		ip = strings.Split(addresses[0].String(), "/")[0]
-	} else {
-		ip = addresses[1].String()[0 : len(ip)-3]
-	}
-
+    ip := GetOutboundIP().String() 
 	filename = flag.String("f", "invalid", "File name to be shared")
 	numberOfTimes = flag.Int("t", 1, "Number of times file to be shared")
 
@@ -136,4 +127,15 @@ func zipit(source, target string) {
 		return err
 
 	})
+}
+
+// extracts the IP address in more efficient way
+func GetOutboundIP() net.IP {
+    conn, err := net.Dial("udp", "8.8.8.8:80")
+    if err != nil {
+        log.Fatal(err)
+    }
+    defer conn.Close() 
+    localAddr := conn.LocalAddr().(*net.UDPAddr)
+    return localAddr.IP
 }
